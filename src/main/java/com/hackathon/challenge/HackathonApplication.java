@@ -1,4 +1,4 @@
-package com.hackathon.challenge.hackathon;
+package com.hackathon.challenge;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

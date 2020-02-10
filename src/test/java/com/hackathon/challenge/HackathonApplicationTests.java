@@ -1,4 +1,4 @@
-package com.hackathon.challenge.hackathon;
+package com.hackathon.challenge;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
