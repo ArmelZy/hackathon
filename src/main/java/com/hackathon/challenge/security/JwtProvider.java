@@ -1,8 +1,8 @@
 package com.hackathon.challenge.security;
 
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import io.jsonwebtoken.security.SignatureException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
@@ -26,5 +26,29 @@ public class JwtProvider {
                 .setSubject(principal.getUsername())
                 .signWith(key)
                 .compact();
+    }
+
+    public boolean validateToken(String jwtFromRequest){
+        boolean isValid=false;
+        Jws<Claims> claimsJws;
+        try{
+            claimsJws = Jwts.parserBuilder()
+                            .setSigningKey(key)
+                            .build()
+                            .parseClaimsJws(jwtFromRequest);
+            //We can safely trust the JwtFromRequest
+            isValid=true;
+        } catch (ExpiredJwtException | MalformedJwtException | SignatureException | IllegalArgumentException | UnsupportedJwtException e) {
+            e.printStackTrace();
+        }
+        return isValid;
+    }
+
+    public String getUsernameFromJWT(String jwtFromRequest) {
+        Claims claims = Jwts.parserBuilder()
+                            .setSigningKey(key).build()
+                            .parseClaimsJws(jwtFromRequest)
+                            .getBody();
+        return claims.getSubject();
     }
 }
