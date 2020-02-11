@@ -1,30 +1,10 @@
-package com.hackathon.challenge.model;
+package com.hackathon.challenge.dto;
 
-import javax.persistence.*;
+public class RegisterRequest {
 
-@Entity
-@Table
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column
     private String userName;
-
-    @Column
     private String password;
-
-    @Column
     private String email;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getUserName() {
         return userName;
