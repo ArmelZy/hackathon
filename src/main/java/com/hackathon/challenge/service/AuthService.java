@@ -1,5 +1,6 @@
 package com.hackathon.challenge.service;
 
+import com.hackathon.challenge.dto.AuthenticationResponse;
 import com.hackathon.challenge.dto.LoginRequest;
 import com.hackathon.challenge.dto.RegisterRequest;
 import com.hackathon.challenge.model.User;
@@ -31,7 +32,7 @@ public class AuthService {
 
     public void signup(RegisterRequest registerRequest) {
         User user = new User();
-        user.setUserName(registerRequest.getUserName());
+        user.setUserName(registerRequest.getUsername());
         user.setPassword(encodePassword(registerRequest.getPassword()));
         user.setEmail(registerRequest.getEmail());
         userRepository.save(user);
@@ -42,10 +43,12 @@ public class AuthService {
         return passwordEncoder.encode(password);
     }
 
-    public String login(LoginRequest loginRequest) {
+    public AuthenticationResponse login(LoginRequest loginRequest) {
+        String token;
         Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authenticate);
-        return jwtProvider.generateToken(authenticate);
+        token = jwtProvider.generateToken(authenticate);
+        return new AuthenticationResponse(token,loginRequest.getUsername());
     }
 
     public Optional<org.springframework.security.core.userdetails.User> getCurrentUser() {

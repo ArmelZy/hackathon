@@ -1,5 +1,6 @@
 package com.hackathon.challenge.controller;
 
+import com.hackathon.challenge.dto.AuthenticationResponse;
 import com.hackathon.challenge.dto.LoginRequest;
 import com.hackathon.challenge.dto.RegisterRequest;
 import com.hackathon.challenge.service.AuthService;
@@ -27,9 +28,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest loginRequest){
-
+    public AuthenticationResponse login(@RequestBody LoginRequest loginRequest){
         return authService.login(loginRequest);
-
     }
 }

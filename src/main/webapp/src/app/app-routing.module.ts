@@ -5,11 +5,13 @@ import {HomeComponent} from "./body/home/home.component";
 import {RegisterComponent} from "./auth/register/register.component";
 import {LoginComponent} from "./auth/login/login.component";
 import {NoPageFoundComponent} from "./no-page-found/no-page-found.component";
+import {RegisterSuccessComponent} from "./auth/register-success/register-success.component";
 
 const routes: Routes = [
   {path:'', redirectTo:'/home', pathMatch:'full'},
   {path:'home', component: HomeComponent},
   {path:'register', component: RegisterComponent},
+  {path:'register-success', component: RegisterSuccessComponent},
   {path:'login', component: LoginComponent},
   {path:'**', component: NoPageFoundComponent},
 ];

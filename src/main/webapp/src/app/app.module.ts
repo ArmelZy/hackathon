@@ -13,6 +13,7 @@ import {HomeComponent} from './body/home/home.component';
 import {ContactUsComponent} from './body/contact-us/contact-us.component';
 import {NoPageFoundComponent} from './no-page-found/no-page-found.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {NgxWebstorageModule} from "ngx-webstorage";
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxWebstorageModule.forRoot(),
     HttpClientModule
   ],
   exports: [HttpClientModule],
