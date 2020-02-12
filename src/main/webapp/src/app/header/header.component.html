@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg theme">
+  <a class="navbar-brand appname" href="#"><img src="../../assets/logo_brand.png" alt="logo"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link header-link" routerLink="/home">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link header-link" routerLink="/offer">Offers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link header-link" routerLink="/blog">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link header-link" routerLink="/contact-us">Contact Us</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <!--<input class="form-control mr-sm-2 btn-sm" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success btn-sm my-2 my-sm-0" type="submit">Search</button>-->
+      <button routerLink="/register" class="header-button btn btn-outline-primary btn-sm my-20 my-sm-0" type="submit">Register</button>
+      <button routerLink="/login" class="header-button btn btn-outline-primary btn-sm my-2 my-sm-0" type="submit">Login</button>
+    </form>
+  </div>
+</nav>
