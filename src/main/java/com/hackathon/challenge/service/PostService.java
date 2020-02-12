@@ -1,7 +1,7 @@
 package com.hackathon.challenge.service;
 
 import com.hackathon.challenge.dto.PostDTO;
-import com.hackathon.challenge.exception.PostNotFoundException;
+import com.hackathon.challenge.exception.CustomException;
 import com.hackathon.challenge.model.Post;
 import com.hackathon.challenge.repository.PostRepository;
 import org.springframework.security.core.userdetails.User;
@@ -42,7 +42,7 @@ public class PostService {
     }
 
     public PostDTO readSinglePost(Long id){
-        Post post = postRepository.findById(id).orElseThrow(()-> new PostNotFoundException("For id " + id));
+        Post post = postRepository.findById(id).orElseThrow(()-> new CustomException("For id " + id));
         return mapFromPostToDTO(post);
     }
 
