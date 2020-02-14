@@ -1,0 +1,9 @@
+<div class="container py-5" *ngIf="images">
+  <div class="card" style="width: 18rem;">
+    <img [src]="images[0]" class="card-img-top" alt="image for this announce">
+    <div class="card-body">
+      <h5 class="card-title">{{post.title}}</h5>
+      <p class="card-text">{{post.content}}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<ngb-carousel *ngIf="images">
+  <ng-template ngbSlide *ngFor="let post of posts | async" >
+    <div class="picsum-img-wrapper">
+      <img [src]="images[0]" alt="Random first slide">
+    </div>
+    <div class="carousel-caption">
+      <h3>{{post.title}}</h3>
+      <p>{{post.content}}</p>
+      <button type="button" routerLink="/announce/{{post.id}}" class="btn btn-danger btn-sm">Read more</button>
+    </div>
+  </ng-template>
+</ngb-carousel>

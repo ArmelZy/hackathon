@@ -25,6 +25,7 @@ export class AddAnnounceComponent implements OnInit {
     this.postPayload = {
       title:'',
       content:'',
+      id:'',
     }
   }
 

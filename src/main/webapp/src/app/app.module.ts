@@ -16,6 +16,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxWebstorageModule} from "ngx-webstorage";
 import {AddAnnounceComponent} from './body/add-announce/add-announce.component';
 import {HttpClientInterceptor} from "./http-client-interceptor";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {CarouselComponent} from './body/home/carousel/carousel.component';
+import {AnnounceComponent} from './body/announce/announce.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +31,16 @@ import {HttpClientInterceptor} from "./http-client-interceptor";
     HomeComponent,
     ContactUsComponent,
     NoPageFoundComponent,
-    AddAnnounceComponent
+    AddAnnounceComponent,
+    CarouselComponent,
+    AnnounceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule,
     NgxWebstorageModule.forRoot(),
     HttpClientModule
   ],
