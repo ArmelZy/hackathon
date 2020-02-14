@@ -9,12 +9,13 @@ import {RegisterSuccessComponent} from "./auth/register-success/register-success
 import {AddAnnounceComponent} from "./body/add-announce/add-announce.component";
 import {ContactUsComponent} from "./body/contact-us/contact-us.component";
 import {AnnounceComponent} from "./body/announce/announce.component";
+import {AuthGuard} from "./auth.guard";
 
 const routes: Routes = [
   {path:'', redirectTo:'/home', pathMatch:'full'},
   {path:'home', component: HomeComponent},
-  {path:'add-announce', component: AddAnnounceComponent},
-  {path:'announce/:id', component: AnnounceComponent},
+  {path:'add-announce', component: AddAnnounceComponent, canActivate:[AuthGuard]},
+  {path:'announce/:id', component: AnnounceComponent, canActivate:[AuthGuard]},
   {path:'contact-us', component: ContactUsComponent},
   {path:'register', component: RegisterComponent},
   {path:'register-success', component: RegisterSuccessComponent},
