@@ -19,6 +19,8 @@ import {HttpClientInterceptor} from "./http-client-interceptor";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {CarouselComponent} from './body/home/carousel/carousel.component';
 import {AnnounceComponent} from './body/announce/announce.component';
+import {FaqComponent} from './body/faq/faq.component';
+import {FooterComponent} from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import {AnnounceComponent} from './body/announce/announce.component';
     NoPageFoundComponent,
     AddAnnounceComponent,
     CarouselComponent,
-    AnnounceComponent
+    AnnounceComponent,
+    FaqComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
