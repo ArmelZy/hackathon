@@ -6,6 +6,7 @@ import com.hackathon.challenge.model.Post;
 import com.hackathon.challenge.repository.PostRepository;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.List;
@@ -23,6 +24,7 @@ public class PostService {
         this.postRepository = postRepository;
     }
 
+    @Transactional
     public void createPost(PostDTO postDTO){
         /*Post post = new Post();
         post.setTitle(postDTO.getTitle());
@@ -36,11 +38,13 @@ public class PostService {
         postRepository.save(post);
     }
 
+    @Transactional
     public List<PostDTO> showAllPosts(){
         List<Post> posts = postRepository.findAll();
         return posts.stream().map(this::mapFromPostToDTO).collect(toList());
     }
 
+    @Transactional
     public PostDTO readSinglePost(Long id){
         Post post = postRepository.findById(id).orElseThrow(()-> new CustomException("For id " + id));
         return mapFromPostToDTO(post);

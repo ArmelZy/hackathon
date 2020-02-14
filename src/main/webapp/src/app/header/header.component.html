@@ -12,6 +12,9 @@
       <li class="nav-item">
         <a class="nav-link header-link" routerLink="/offer">Offers</a>
       </li>
+      <li class="nav-item" *ngIf="authService.isAuthenticated()">
+        <a class="nav-link header-link" routerLink="/add-announce">Add recruitment announce</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link header-link" routerLink="/blog">Blog</a>
       </li>
@@ -20,10 +23,12 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <!--<input class="form-control mr-sm-2 btn-sm" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success btn-sm my-2 my-sm-0" type="submit">Search</button>-->
-      <button routerLink="/register" class="header-button btn btn-outline-primary btn-sm my-20 my-sm-0" type="submit">Register</button>
-      <button routerLink="/login" class="header-button btn btn-outline-primary btn-sm my-2 my-sm-0" type="submit">Login</button>
+      <!--<input class="active-s form-control mr-sm-2 btn-sm" type="search" placeholder="Search" aria-label="Search">
+      <button class="search-button btn btn-outline-primary btn-sm my-20 my-sm-0" type="submit">Search</button>-->
+      <span class="my-red" *ngIf="authService.isAuthenticated()">Hi, {{username}} !</span>
+      <button routerLink="/register" class="header-button btn btn-outline-primary btn-sm my-20 my-sm-0" type="submit" *ngIf="!authService.isAuthenticated()">Register</button>
+      <button routerLink="/login" class="header-button btn btn-outline-primary btn-sm m y-2 my-sm-0" type="submit" *ngIf="!authService.isAuthenticated()">Login</button>
+      <button routerLink="/home" class="header-button btn btn-outline-primary btn-sm m y-2 my-sm-0" type="submit" *ngIf="authService.isAuthenticated()" (click)="authService.logout()">Logout</button>
     </form>
   </div>
 </nav>

@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -14,6 +14,8 @@ import {ContactUsComponent} from './body/contact-us/contact-us.component';
 import {NoPageFoundComponent} from './no-page-found/no-page-found.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxWebstorageModule} from "ngx-webstorage";
+import {AddAnnounceComponent} from './body/add-announce/add-announce.component';
+import {HttpClientInterceptor} from "./http-client-interceptor";
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import {NgxWebstorageModule} from "ngx-webstorage";
     BodyComponent,
     HomeComponent,
     ContactUsComponent,
-    NoPageFoundComponent
+    NoPageFoundComponent,
+    AddAnnounceComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import {NgxWebstorageModule} from "ngx-webstorage";
     HttpClientModule
   ],
   exports: [HttpClientModule],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

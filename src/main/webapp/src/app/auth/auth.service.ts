@@ -27,4 +27,21 @@ export class AuthService {
       return true;
     }));
   }
+
+  isAuthenticated():Boolean{
+    return this.localStorageService.retrieve('username')!=null;
+  }
+
+  getUsername():string{
+    let name = this.localStorageService.retrieve('username');
+    console.log(name);
+    return name;
+  }
+
+  logout() {
+    this.localStorageService.clear('username');
+    this.localStorageService.clear('authenticationToken');
+    console.log('Local storage cleared');
+  }
+
 }
